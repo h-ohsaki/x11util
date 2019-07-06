@@ -71,7 +71,7 @@ pip3 install x11util
 
 # AVAILABILITY
 
-The latest version of **perlcompat** module is available at PyPI
+The latest version of **x11util** module is available at PyPI
 (https://pypi.org/project/x11util/) .
 
 # SEE ALSO

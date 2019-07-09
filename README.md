@@ -2,6 +2,8 @@
 
 x11util - Wrapper fucntions to make X11 low-level Xlib programming easier
 
+$Id$
+
 # DESCRIPTION
 
 This manual page documents **x11util** module, a Python module providing

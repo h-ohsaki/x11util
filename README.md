@@ -63,6 +63,19 @@ time.sleep(10)
 
   Flush all pending X11 requests.
 
+# CUSTOMIZATION
+
+On startup, **x11util** module loads per-user RC script (`~/.x11utilrc`) if it
+exists.  The RC script is any valid Python script.  You can change the
+behavior of **x11util** using the RC file.
+
+An example `~/.x11utilrc` file is as follows.
+
+```python
+global FONT_NAME
+FONT_NAME = '-hiro-fixed-medium-r-normal--8-80-75-75-c-80-iso646.1991-irv'
+```
+
 # INSTALLATION
 
 ```python

@@ -165,6 +165,5 @@ def main():
     time.sleep(10)
 
 load_rcfile()
-print('aaa')
 if __name__ == "__main__":
     main()

@@ -11,7 +11,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='x11util',
-    version='1.1',
+    version='1.2',
     author='Hiroyuki Ohsaki',
     author_email='ohsaki@lsnl.jp',
     description='Wrapper fucntions to make X11 low-level Xlib programming easier',

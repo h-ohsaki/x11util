@@ -7,9 +7,11 @@
 # $Id: xutil.py,v 1.8 2019/02/27 14:16:58 ohsaki Exp $
 #
 
+import os
 import time
 
 from Xlib import X, display
+from perlcompat import die
 
 FONT_NAME = '-schumacher-clean-bold-r-normal--8-80-75-75-c-80-iso646.1991-irv'
 FONT_WIDTH = 8
@@ -30,6 +32,22 @@ COLORS = [
     'orange',
     'OrangeRed',
 ]
+
+def load_rcfile():
+    """Load and execute the custom RC script in the home directory
+    (~/.x11util) if it exists.  The RC script is any (valid) Python script,
+    which is loaded after defining all global vaiables.  So, you can freely
+    overrwite those definitions."""
+    rc_file = '{}/.x11utilrc'.format(os.getenv('HOME'))
+    try:
+        with open(rc_file) as f:
+            code = f.read()
+    except FileNotFoundError:
+        return None
+    try:
+        exec(code)
+    except:
+        die("executing '%s' failed.  aborting...".format(rc_file))
 
 def create_window(disp,
                   screen,
@@ -146,5 +164,7 @@ def main():
     flush(disp, screen)
     time.sleep(10)
 
+load_rcfile()
+print('aaa')
 if __name__ == "__main__":
     main()

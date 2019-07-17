@@ -145,8 +145,11 @@ def draw_str(disp,
         fgcolor, bgcolor = bgcolor, fgcolor
     x = col * FONT_WIDTH
     y = row * FONT_HEIGHT
-    # FIXME: this code could be written simpler?
-    chars = [chr(c).encode() for c in list(astr.encode())]
+    w = FONT_WIDTH * len(astr)
+    h = FONT_HEIGHT
+    window.fill_rectangle(gcs[bgcolor][level], x, y, w, h)
+    # convert string to list of single bytes
+    chars = [c.encode() for c in list(astr)]
     window.poly_text(gcs[fgcolor][level], x, y + FONT_HEIGHT - 1, chars)
 
 def flush(disp, screen):
@@ -161,6 +164,7 @@ def main():
     gcs = create_gcs(disp, screen, window, font)
     draw_str(disp, screen, window, gcs, 'Hello, World!', 10, 20)
     draw_str(disp, screen, window, gcs, 'Hello, World!', 11, 21, level=50)
+    draw_str(disp, screen, window, gcs, 'Hello, World!', 12, 22, reverse=True)
     flush(disp, screen)
     time.sleep(10)
 
